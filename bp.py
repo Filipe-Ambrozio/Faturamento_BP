@@ -21,7 +21,7 @@ if not st.session_state.logado:
     st.stop()
 
 # BOTÃO SAIR
-if st.button("🚪 Sair"):
+if st.button("Sair"):
     st.session_state.logado = False
     st.rerun()
 
@@ -101,11 +101,24 @@ for i in range(st.session_state.qtd_despesa):
 
 # TOTAL
 total_faturamento = dinheiro + infinity + stone + vale + pix
-total_final = total_faturamento - total_despesa
+total_final = total_faturamento + total_despesa
 
-st.metric("Total Faturamento", f"R$ {total_faturamento:.2f}")
-st.metric("Total Despesa do Dia", f"R$ {total_despesa:.2f}")
-st.metric("Total Final", f"R$ {total_final:.2f}")
+# st.metric("Total Faturamento", f"R$ {total_faturamento:.2f}")
+# st.metric("Total Despesa do Dia", f"R$ {total_despesa:.2f}")
+# st.metric("Total Final", f"R$ {total_final:.2f}")
+
+st.markdown("## 📊 Resumo do Dia")
+
+c1, c2, c3 = st.columns(3)
+
+with c1:
+    st.metric("💰 Total Faturamento", f"R$ {total_faturamento:.2f}")
+
+with c2:
+    st.metric("🧾 Total Despesas", f"R$ {total_despesa:.2f}")
+
+with c3:
+    st.metric("✅ Saldo Final", f"R$ {total_final:.2f}")
 
 # SALVAR
 if st.button("Salvar na Planilha"):
