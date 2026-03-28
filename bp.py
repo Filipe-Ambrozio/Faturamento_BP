@@ -34,7 +34,7 @@ with col1:
     data = st.date_input("Data", value=date.today())
 
 with col2:
-    loja = st.selectbox("Loja", ["", "Loja1", "Loja2", "Loja3"])
+    loja = st.selectbox("Loja", ["", "Boa Opção São Lourenço Lourenço", "Boa Opção Timbaúba", "Boa Opção Peixinho", "BM SL", "BM Porto", "BM Santa Rita", "BM Timabaúba", "BM Abreu", "BM Surubim", "BM Natal", "BM Campina"])
 
 with col3:
     nome = st.text_input("Nome")
