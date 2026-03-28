@@ -32,6 +32,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     data = st.date_input("Data", value=date.today())
+data_formatada = data.strftime("%d/%m/%Y")
 
 with col2:
     loja = st.selectbox("Loja", ["", "Boa Opção São Lourenço Lourenço", "Boa Opção Timbaúba", "Boa Opção Peixinho", "BM SL", "BM Porto", "BM Santa Rita", "BM Timabaúba", "BM Abreu", "BM Surubim", "BM Natal", "BM Campina"])
@@ -126,7 +127,7 @@ if st.button("Salvar na Planilha"):
     url = "https://script.google.com/macros/s/AKfycbyYBDLTrTKwKlnUG05CwYnYg1EFvCYn6VLEm0KISFO-07wouOlzR8DJgIAK1FWAL1Dygw/exec"
 
     dados = {
-        "data": str(data),
+        "data": data_formatada,
         "loja": loja,
         "nome": nome,
         "dinheiro": dinheiro,
